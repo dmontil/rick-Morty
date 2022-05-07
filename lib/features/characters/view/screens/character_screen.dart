@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ricky/core/styles/app_styles.dart';
+import 'package:ricky/features/characters/view/widgets/character_card.dart';
 
 
 class CharactersScreen extends StatelessWidget {
@@ -13,7 +13,7 @@ class CharactersScreen extends StatelessWidget {
           child: Column(
             children: const [
               Placeholder(fallbackHeight:200 ,),
-              Text('Characters'),
+              CharacterCard(),
               Placeholder(fallbackHeight:500 ,),
               Placeholder(fallbackHeight:100 ,)
 
