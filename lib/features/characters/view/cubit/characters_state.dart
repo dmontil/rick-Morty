@@ -9,6 +9,7 @@ class CharacterState with _$CharacterState {
     required List<Character> characters,
     required bool isLoading,
     required bool error,
+    @Default(false) bool onlyFavorites,
   }) = _CharacterState;
 
 }

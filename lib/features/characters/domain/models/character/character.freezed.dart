@@ -28,6 +28,7 @@ mixin _$Character {
   String get species => throw _privateConstructorUsedError;
   String get image => throw _privateConstructorUsedError;
   bool get isFavorite => throw _privateConstructorUsedError;
+  Location get location => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -47,7 +48,10 @@ abstract class $CharacterCopyWith<$Res> {
       String type,
       String species,
       String image,
-      bool isFavorite});
+      bool isFavorite,
+      Location location});
+
+  $LocationCopyWith<$Res> get location;
 }
 
 /// @nodoc
@@ -68,6 +72,7 @@ class _$CharacterCopyWithImpl<$Res> implements $CharacterCopyWith<$Res> {
     Object? species = freezed,
     Object? image = freezed,
     Object? isFavorite = freezed,
+    Object? location = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -102,7 +107,18 @@ class _$CharacterCopyWithImpl<$Res> implements $CharacterCopyWith<$Res> {
           ? _value.isFavorite
           : isFavorite // ignore: cast_nullable_to_non_nullable
               as bool,
+      location: location == freezed
+          ? _value.location
+          : location // ignore: cast_nullable_to_non_nullable
+              as Location,
     ));
+  }
+
+  @override
+  $LocationCopyWith<$Res> get location {
+    return $LocationCopyWith<$Res>(_value.location, (value) {
+      return _then(_value.copyWith(location: value));
+    });
   }
 }
 
@@ -120,7 +136,11 @@ abstract class _$$_CharacterCopyWith<$Res> implements $CharacterCopyWith<$Res> {
       String type,
       String species,
       String image,
-      bool isFavorite});
+      bool isFavorite,
+      Location location});
+
+  @override
+  $LocationCopyWith<$Res> get location;
 }
 
 /// @nodoc
@@ -143,6 +163,7 @@ class __$$_CharacterCopyWithImpl<$Res> extends _$CharacterCopyWithImpl<$Res>
     Object? species = freezed,
     Object? image = freezed,
     Object? isFavorite = freezed,
+    Object? location = freezed,
   }) {
     return _then(_$_Character(
       id: id == freezed
@@ -177,6 +198,10 @@ class __$$_CharacterCopyWithImpl<$Res> extends _$CharacterCopyWithImpl<$Res>
           ? _value.isFavorite
           : isFavorite // ignore: cast_nullable_to_non_nullable
               as bool,
+      location: location == freezed
+          ? _value.location
+          : location // ignore: cast_nullable_to_non_nullable
+              as Location,
     ));
   }
 }
@@ -192,7 +217,8 @@ class _$_Character implements _Character {
       required this.type,
       required this.species,
       required this.image,
-      this.isFavorite = false});
+      this.isFavorite = false,
+      required this.location});
 
   factory _$_Character.fromJson(Map<String, dynamic> json) =>
       _$$_CharacterFromJson(json);
@@ -214,10 +240,12 @@ class _$_Character implements _Character {
   @override
   @JsonKey()
   final bool isFavorite;
+  @override
+  final Location location;
 
   @override
   String toString() {
-    return 'Character(id: $id, name: $name, status: $status, gender: $gender, type: $type, species: $species, image: $image, isFavorite: $isFavorite)';
+    return 'Character(id: $id, name: $name, status: $status, gender: $gender, type: $type, species: $species, image: $image, isFavorite: $isFavorite, location: $location)';
   }
 
   @override
@@ -233,7 +261,8 @@ class _$_Character implements _Character {
             const DeepCollectionEquality().equals(other.species, species) &&
             const DeepCollectionEquality().equals(other.image, image) &&
             const DeepCollectionEquality()
-                .equals(other.isFavorite, isFavorite));
+                .equals(other.isFavorite, isFavorite) &&
+            const DeepCollectionEquality().equals(other.location, location));
   }
 
   @JsonKey(ignore: true)
@@ -247,7 +276,8 @@ class _$_Character implements _Character {
       const DeepCollectionEquality().hash(type),
       const DeepCollectionEquality().hash(species),
       const DeepCollectionEquality().hash(image),
-      const DeepCollectionEquality().hash(isFavorite));
+      const DeepCollectionEquality().hash(isFavorite),
+      const DeepCollectionEquality().hash(location));
 
   @JsonKey(ignore: true)
   @override
@@ -269,7 +299,8 @@ abstract class _Character implements Character {
       required final String type,
       required final String species,
       required final String image,
-      final bool isFavorite}) = _$_Character;
+      final bool isFavorite,
+      required final Location location}) = _$_Character;
 
   factory _Character.fromJson(Map<String, dynamic> json) =
       _$_Character.fromJson;
@@ -290,6 +321,8 @@ abstract class _Character implements Character {
   String get image => throw _privateConstructorUsedError;
   @override
   bool get isFavorite => throw _privateConstructorUsedError;
+  @override
+  Location get location => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$_CharacterCopyWith<_$_Character> get copyWith =>

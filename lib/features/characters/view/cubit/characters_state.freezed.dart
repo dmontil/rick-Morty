@@ -19,6 +19,7 @@ mixin _$CharacterState {
   List<Character> get characters => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
   bool get error => throw _privateConstructorUsedError;
+  bool get onlyFavorites => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CharacterStateCopyWith<CharacterState> get copyWith =>
@@ -30,7 +31,11 @@ abstract class $CharacterStateCopyWith<$Res> {
   factory $CharacterStateCopyWith(
           CharacterState value, $Res Function(CharacterState) then) =
       _$CharacterStateCopyWithImpl<$Res>;
-  $Res call({List<Character> characters, bool isLoading, bool error});
+  $Res call(
+      {List<Character> characters,
+      bool isLoading,
+      bool error,
+      bool onlyFavorites});
 }
 
 /// @nodoc
@@ -47,6 +52,7 @@ class _$CharacterStateCopyWithImpl<$Res>
     Object? characters = freezed,
     Object? isLoading = freezed,
     Object? error = freezed,
+    Object? onlyFavorites = freezed,
   }) {
     return _then(_value.copyWith(
       characters: characters == freezed
@@ -61,6 +67,10 @@ class _$CharacterStateCopyWithImpl<$Res>
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as bool,
+      onlyFavorites: onlyFavorites == freezed
+          ? _value.onlyFavorites
+          : onlyFavorites // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -72,7 +82,11 @@ abstract class _$$_CharacterStateCopyWith<$Res>
           _$_CharacterState value, $Res Function(_$_CharacterState) then) =
       __$$_CharacterStateCopyWithImpl<$Res>;
   @override
-  $Res call({List<Character> characters, bool isLoading, bool error});
+  $Res call(
+      {List<Character> characters,
+      bool isLoading,
+      bool error,
+      bool onlyFavorites});
 }
 
 /// @nodoc
@@ -91,6 +105,7 @@ class __$$_CharacterStateCopyWithImpl<$Res>
     Object? characters = freezed,
     Object? isLoading = freezed,
     Object? error = freezed,
+    Object? onlyFavorites = freezed,
   }) {
     return _then(_$_CharacterState(
       characters: characters == freezed
@@ -105,6 +120,10 @@ class __$$_CharacterStateCopyWithImpl<$Res>
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as bool,
+      onlyFavorites: onlyFavorites == freezed
+          ? _value.onlyFavorites
+          : onlyFavorites // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -115,7 +134,8 @@ class _$_CharacterState implements _CharacterState {
   const _$_CharacterState(
       {required final List<Character> characters,
       required this.isLoading,
-      required this.error})
+      required this.error,
+      this.onlyFavorites = false})
       : _characters = characters;
 
   final List<Character> _characters;
@@ -129,10 +149,13 @@ class _$_CharacterState implements _CharacterState {
   final bool isLoading;
   @override
   final bool error;
+  @override
+  @JsonKey()
+  final bool onlyFavorites;
 
   @override
   String toString() {
-    return 'CharacterState(characters: $characters, isLoading: $isLoading, error: $error)';
+    return 'CharacterState(characters: $characters, isLoading: $isLoading, error: $error, onlyFavorites: $onlyFavorites)';
   }
 
   @override
@@ -143,7 +166,9 @@ class _$_CharacterState implements _CharacterState {
             const DeepCollectionEquality()
                 .equals(other._characters, _characters) &&
             const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
-            const DeepCollectionEquality().equals(other.error, error));
+            const DeepCollectionEquality().equals(other.error, error) &&
+            const DeepCollectionEquality()
+                .equals(other.onlyFavorites, onlyFavorites));
   }
 
   @override
@@ -151,7 +176,8 @@ class _$_CharacterState implements _CharacterState {
       runtimeType,
       const DeepCollectionEquality().hash(_characters),
       const DeepCollectionEquality().hash(isLoading),
-      const DeepCollectionEquality().hash(error));
+      const DeepCollectionEquality().hash(error),
+      const DeepCollectionEquality().hash(onlyFavorites));
 
   @JsonKey(ignore: true)
   @override
@@ -163,7 +189,8 @@ abstract class _CharacterState implements CharacterState {
   const factory _CharacterState(
       {required final List<Character> characters,
       required final bool isLoading,
-      required final bool error}) = _$_CharacterState;
+      required final bool error,
+      final bool onlyFavorites}) = _$_CharacterState;
 
   @override
   List<Character> get characters => throw _privateConstructorUsedError;
@@ -171,6 +198,8 @@ abstract class _CharacterState implements CharacterState {
   bool get isLoading => throw _privateConstructorUsedError;
   @override
   bool get error => throw _privateConstructorUsedError;
+  @override
+  bool get onlyFavorites => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$_CharacterStateCopyWith<_$_CharacterState> get copyWith =>

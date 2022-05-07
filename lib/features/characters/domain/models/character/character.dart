@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:ricky/features/characters/domain/models/location/location.dart';
 
 part 'character.freezed.dart';
 part 'character.g.dart';
@@ -14,6 +15,7 @@ class Character with _$Character {
     required String species,
     required String image,
     @Default(false)    bool isFavorite,
+    required Location location,
   }) = _Character;
 
   factory Character.fromJson(Map<String, dynamic> json) =>

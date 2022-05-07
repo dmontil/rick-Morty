@@ -8,14 +8,25 @@ class CharacterCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      color: Colors.grey[200],
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-      child: Row(
-        children: [
-           _ImageWithFav(url: character.image, isFavorite: character.isFavorite,),
-           _InfoCard(character: character,),
-        ],
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Card(
+        margin: EdgeInsets.zero,
+        color: Colors.grey[200],
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        child: Row(
+          children: [
+            SizedBox(
+                height: 160,
+                child: _ImageWithFav(
+                  url: character.image,
+                  isFavorite: character.isFavorite,
+                )),
+            _InfoCard(
+              character: character,
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -37,19 +48,19 @@ class _InfoCard extends StatelessWidget {
       padding: const EdgeInsets.symmetric(
           vertical: AppSpaces.s, horizontal: AppSpaces.m),
       child: SizedBox(
-        width: MediaQuery.of(context).size.width * 0.45,
+        width: MediaQuery.of(context).size.width * 0.40,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Alive- Human', style: textStyleTitle),
-            Text('Morty Smith', style: textStyleSubtitle),
+            Text(character.species, style: textStyleTitle),
+            Text(character.name, style: textStyleSubtitle),
             const SizedBox(height: AppSpaces.xs),
             Text(
               'Last kwnon location:',
               style: textStyleTitle,
               overflow: TextOverflow.ellipsis,
             ),
-            Text('Story man', style: textStyleSubtitle),
+            Text(character.location.name, style: textStyleSubtitle),
             const SizedBox(height: AppSpaces.xs),
             Text('First seen', style: textStyleTitle),
             Text(
@@ -76,10 +87,13 @@ class _ImageWithFav extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Image.network(
-          url,
-          height: 150,
-          width: 150,
+        ClipRRect(
+          borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(10), bottomLeft: Radius.circular(10)),
+          child: Image.network(
+            url,
+            fit: BoxFit.cover,
+          ),
         ),
         const Positioned(
           right: 0,
