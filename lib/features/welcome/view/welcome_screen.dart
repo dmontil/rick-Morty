@@ -1,5 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:ricky/core/routing/app_router.dart';
 import 'package:ricky/core/styles/app_styles.dart';
 import 'package:ricky/core/widgets/buttons/primary_button.dart';
 import 'package:ricky/core/widgets/logo.dart';
@@ -8,8 +10,8 @@ class _Constants {
   static const double verticalPadding = 119.0;
 }
 
-class WelcomePage extends StatelessWidget {
-  const WelcomePage({Key? key}) : super(key: key);
+class WelcomeScreen extends StatelessWidget {
+  const WelcomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +41,9 @@ class WelcomePage extends StatelessWidget {
             style: AppTextStyle.regularMedium.copyWith(color: AppColors.white),
           ),
           const Spacer(),
-          PrimaryButton(text: 'welcomeButton'.tr(), onPressed: () {}),
+          PrimaryButton(
+              text: 'welcomeButton'.tr(),
+              onPressed: () => context.goNamed(AppRoute.characters.name)),
         ]),
       ),
     ));

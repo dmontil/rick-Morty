@@ -1,9 +1,10 @@
 import 'package:go_router/go_router.dart';
-import 'package:ricky/features/welcome/view/welcome_page.dart';
+import 'package:ricky/features/characters/view/screens/character_screen.dart';
+import 'package:ricky/features/welcome/view/welcome_screen.dart';
 
 enum AppRoute {
   welcome,
-  home,
+  characters,
   characterDetail,
 }
 
@@ -13,9 +14,22 @@ final goRouter = GoRouter(
   routes: [
     GoRoute(
       path: '/',
-      name: AppRoute.home.name,
-      builder: (context, state) => const WelcomePage(),
-      routes: [],
+      name: AppRoute.welcome.name,
+      builder: (context, state) => const WelcomeScreen(),
+      routes: [
+        GoRoute(
+          path: 'characters',
+          name: AppRoute.characters.name,
+          builder: (context, state) => const CharactersScreen(),
+          routes: [
+            // GoRoute(
+            //   path: '/:id',
+            //   name: AppRoute.characterDetail.name,
+            //   pageBuilder: (context, state) => CharactersScreen(),
+            // ),
+          ],
+        ),
+      ],
     ),
   ],
 );

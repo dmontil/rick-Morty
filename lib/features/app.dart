@@ -1,7 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:ricky/core/routing/app_router.dart';
-
 class App extends StatelessWidget {
   const App({Key? key}) : super(key: key);
 
