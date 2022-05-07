@@ -1,11 +1,13 @@
+
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-
-part 'episode.freezed.dart';
 part 'episode.g.dart';
+part 'episode.freezed.dart';
 
 @freezed
 class Episode with _$Episode {
+  @JsonSerializable(explicitToJson: true)
   const factory Episode({
     required int id,
     required String name,

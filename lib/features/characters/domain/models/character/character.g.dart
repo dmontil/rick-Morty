@@ -14,6 +14,7 @@ _$_Character _$$_CharacterFromJson(Map<String, dynamic> json) => _$_Character(
       type: json['type'] as String,
       species: json['species'] as String,
       image: json['image'] as String,
+      isFavorite: json['isFavorite'] as bool? ?? false,
     );
 
 Map<String, dynamic> _$$_CharacterToJson(_$_Character instance) =>
@@ -25,4 +26,5 @@ Map<String, dynamic> _$$_CharacterToJson(_$_Character instance) =>
       'type': instance.type,
       'species': instance.species,
       'image': instance.image,
+      'isFavorite': instance.isFavorite,
     };

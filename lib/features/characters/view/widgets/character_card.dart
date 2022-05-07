@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:ricky/core/styles/app_styles.dart';
+import 'package:ricky/features/characters/domain/models/character/character.dart';
 
 class CharacterCard extends StatelessWidget {
-  const CharacterCard({Key? key}) : super(key: key);
+  final Character character;
+  const CharacterCard({Key? key, required this.character}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -11,8 +13,8 @@ class CharacterCard extends StatelessWidget {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       child: Row(
         children: [
-          const _ImageWithFav(),
-          const _InfoCard(),
+           _ImageWithFav(url: character.image, isFavorite: character.isFavorite,),
+           _InfoCard(character: character,),
         ],
       ),
     );
@@ -20,7 +22,8 @@ class CharacterCard extends StatelessWidget {
 }
 
 class _InfoCard extends StatelessWidget {
-  const _InfoCard({Key? key}) : super(key: key);
+  final Character character;
+  const _InfoCard({Key? key, required this.character}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -61,14 +64,20 @@ class _InfoCard extends StatelessWidget {
 }
 
 class _ImageWithFav extends StatelessWidget {
-  const _ImageWithFav({Key? key}) : super(key: key);
+  final String url;
+  final bool isFavorite;
+  const _ImageWithFav({
+    Key? key,
+    required this.url,
+    required this.isFavorite,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
         Image.network(
-          'https://rickandmortyapi.com/api/character/avatar/1.jpeg',
+          url,
           height: 150,
           width: 150,
         ),
@@ -76,7 +85,7 @@ class _ImageWithFav extends StatelessWidget {
           right: 0,
           bottom: 0,
           child: Icon(
-            Icons.start,
+            Icons.star_outline,
             size: 50,
           ),
         )

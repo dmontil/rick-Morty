@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:ricky/core/http/endpoints.dart';
 import 'package:ricky/core/http/http_service.dart';
-import 'package:ricky/features/characters/data/dtos/characters/characters_dto.dart';
+import 'package:ricky/features/characters/data/dtos/characters_dto.dart';
 import 'package:ricky/features/characters/domain/models/character/character.dart';
 import 'package:ricky/features/characters/domain/models/episode/episode.dart';
 import 'package:ricky/features/characters/domain/models/location/location.dart';

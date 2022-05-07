@@ -129,7 +129,8 @@ class __$$_EpisodeCopyWithImpl<$Res> extends _$EpisodeCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
+
+@JsonSerializable(explicitToJson: true)
 class _$_Episode implements _Episode {
   const _$_Episode(
       {required this.id,

@@ -13,6 +13,7 @@ class Character with _$Character {
     required String type,
     required String species,
     required String image,
+    @Default(false)    bool isFavorite,
   }) = _Character;
 
   factory Character.fromJson(Map<String, dynamic> json) =>

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ricky/features/characters/data/repositories/api_characters_repository.dart';
-import 'package:ricky/features/characters/view/widgets/character_card.dart';
+import 'package:ricky/features/characters/view/widgets/characters_list.dart';
 
 class CharactersScreen extends StatelessWidget {
   const CharactersScreen({Key? key}) : super(key: key);
@@ -14,10 +13,7 @@ class CharactersScreen extends StatelessWidget {
               Placeholder(
                 fallbackHeight: 200,
               ),
-              CharacterCard(),
-              Placeholder(
-                fallbackHeight: 500,
-              ),
+              CharactersList(),
               Placeholder(
                 fallbackHeight: 100,
               )

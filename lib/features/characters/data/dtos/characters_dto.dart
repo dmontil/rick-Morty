@@ -1,4 +1,4 @@
-import 'package:ricky/features/characters/data/dtos/info/info_dto.dart';
+import 'package:ricky/features/characters/data/dtos/info_dto.dart';
 import 'package:ricky/features/characters/domain/models/models.dart';
 
 class CharactersDTO {
