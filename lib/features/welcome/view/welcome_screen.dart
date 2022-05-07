@@ -17,8 +17,14 @@ class WelcomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-      backgroundColor: Colors.black,
       body: Container(
+        decoration: const BoxDecoration(
+          color: AppColors.black,
+          image: DecorationImage(
+            opacity: 0.5,
+            image: AssetImage('assets/background.png',),
+            fit: BoxFit.scaleDown
+        )),
         padding: const EdgeInsets.symmetric(
             vertical: _Constants.verticalPadding, horizontal: 12.0),
         child: Column(children: <Widget>[
