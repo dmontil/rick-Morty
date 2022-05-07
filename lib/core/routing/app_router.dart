@@ -20,7 +20,7 @@ final goRouter = GoRouter(
         GoRoute(
           path: 'characters',
           name: AppRoute.characters.name,
-          builder: (context, state) => const CharactersScreen(),
+          builder: (context, state) =>  CharactersScreen(),
           routes: [
             // GoRoute(
             //   path: '/:id',
