@@ -26,27 +26,24 @@ class CharactersList extends StatelessWidget {
             );
           }
 
-          return Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              const Text('Characters'),
-              ListView.builder(
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  itemCount: state.characters.length,
-                  itemBuilder: (context, index) {
-                    if (state.onlyFavorites) {
-                      if (state.characters[index].isFavorite) {
-                        return CharacterCard(
-                            character: state.characters[index]);
-                      }
-                    }
+          return ListView.builder(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              itemCount: state.characters.length,
+              itemBuilder: (context, index) {
+                if (state.onlyFavorites) {
+                  if (state.characters[index].isFavorite) {
                     return CharacterCard(
-                      character: state.characters[index],
-                    );
-                  })
-            ],
-          );
+                        character: state.characters[index]);
+                  }
+                }else{
+                  return CharacterCard(
+                    character: state.characters[index],
+                  );
+                }
+                return SizedBox();
+
+              });
         });
   }
 }

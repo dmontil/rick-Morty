@@ -4,12 +4,14 @@ import 'package:ricky/features/characters/view/cubit/characters_state.dart';
 
 class CharacterCubit extends Cubit<CharacterState> {
   final CharactersRepository _charactersRepository;
+
   CharacterCubit({
     required CharactersRepository charactersRepository,
-  })  : _charactersRepository = charactersRepository,
+  })
+      : _charactersRepository = charactersRepository,
         super(
-          const CharacterState(isLoading: true, characters: [], error: false),
-        );
+        const CharacterState(isLoading: true, characters: [], error: false),
+      );
 
   Future<void> getCharacters() async {
     emit(state.copyWith(isLoading: true));
@@ -19,5 +21,9 @@ class CharacterCubit extends Cubit<CharacterState> {
     } catch (e) {
       emit(state.copyWith(error: true, isLoading: false));
     }
+  }
+
+  void toggleFavorite() {
+    emit(state.copyWith(onlyFavorites: !state.onlyFavorites));
   }
 }
