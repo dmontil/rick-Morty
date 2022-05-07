@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:ricky/core/styles/app_styles.dart';
+import 'package:ricky/features/app.dart';
 import 'package:ricky/features/characters/domain/models/character/character.dart';
+
+class _Constants {
+  static const _radiusCircular = Radius.circular(10);
+}
 
 class CharacterCard extends StatelessWidget {
   final Character character;
@@ -10,23 +15,16 @@ class CharacterCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: Card(
-        margin: EdgeInsets.zero,
-        color: Colors.grey[200],
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-        child: Row(
-          children: [
-            SizedBox(
-                height: 160,
-                child: _ImageWithFav(
-                  url: character.image,
-                  isFavorite: character.isFavorite,
-                )),
-            _InfoCard(
-              character: character,
-            ),
-          ],
-        ),
+      child: Row(
+        children: [
+          _ImageWithFav(
+            url: character.image,
+            isFavorite: character.isFavorite,
+          ),
+          _InfoCard(
+            character: character,
+          ),
+        ],
       ),
     );
   }
@@ -44,11 +42,24 @@ class _InfoCard extends StatelessWidget {
     final textStyleSubtitle = AppTextStyle.regularMedium.copyWith(
       overflow: TextOverflow.ellipsis,
     );
-    return Padding(
-      padding: const EdgeInsets.symmetric(
-          vertical: AppSpaces.s, horizontal: AppSpaces.m),
-      child: SizedBox(
-        width: MediaQuery.of(context).size.width * 0.40,
+    return Container(
+      decoration: const BoxDecoration(
+          color: AppColors.c200,
+          borderRadius: BorderRadius.only(
+              topRight: _Constants._radiusCircular,
+              bottomRight: _Constants._radiusCircular)),
+      child: Container(
+        margin: const EdgeInsetsDirectional.only(bottom: 1, end: 1, top: 1),
+        decoration: const BoxDecoration(
+          color: AppColors.white,
+          borderRadius: BorderRadius.only(
+              topRight: _Constants._radiusCircular,
+              bottomRight: _Constants._radiusCircular),
+        ),
+        padding: const EdgeInsets.symmetric(
+            vertical: AppSpaces.s, horizontal: AppSpaces.m),
+        //TODO: REMOVE
+        width: MediaQuery.of(context).size.width * 0.48,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -88,11 +99,12 @@ class _ImageWithFav extends StatelessWidget {
     return Stack(
       children: [
         ClipRRect(
-          borderRadius: BorderRadius.only(
+          borderRadius: const BorderRadius.only(
               topLeft: Radius.circular(10), bottomLeft: Radius.circular(10)),
           child: Image.network(
             url,
             fit: BoxFit.cover,
+            height: 160,
           ),
         ),
         const Positioned(
