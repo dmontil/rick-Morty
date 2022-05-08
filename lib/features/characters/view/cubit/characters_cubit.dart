@@ -36,4 +36,19 @@ class CharacterCubit extends Cubit<CharacterState> {
     newList[index] = character.copyWith(isFavorite: !character.isFavorite);
     emit(state.copyWith(characters: newList));
   }
+
+  filterCharacters(String name) async {
+    if (name.isEmpty) {
+      getCharacters();
+    } else {
+      emit(state.copyWith(isLoading: true));
+      try {
+        final characters =
+            await _charactersRepository.getCharactersByName(name);
+        emit(state.copyWith(characters: characters, isLoading: false));
+      } catch (e) {
+        emit(state.copyWith(error: true, isLoading: false));
+      }
+    }
+  }
 }

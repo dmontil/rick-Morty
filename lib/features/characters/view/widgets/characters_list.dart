@@ -25,7 +25,6 @@ class CharactersList extends StatelessWidget {
               child: Text('Error'),
             );
           }
-
           return ListView.builder(
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),

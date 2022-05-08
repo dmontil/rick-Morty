@@ -3,11 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ricky/core/styles/app_styles.dart';
 import 'package:ricky/features/characters/domain/models/character/character.dart';
 import 'package:ricky/features/characters/view/cubit/characters_cubit.dart';
+import 'package:ricky/features/characters/view/widgets/card_whit_border.dart';
 import 'package:ricky/features/characters/view/widgets/favorite_icon.dart';
-
-class _Constants {
-  static const _radiusCircular = Radius.circular(10);
-}
 
 class CharacterCard extends StatelessWidget {
   final Character character;
@@ -16,7 +13,7 @@ class CharacterCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.symmetric(vertical: AppSpaces.s),
       child: Row(
         children: [
           _ImageWithFav(
@@ -43,25 +40,11 @@ class _InfoCard extends StatelessWidget {
     final textStyleSubtitle = AppTextStyle.regularMedium.copyWith(
       overflow: TextOverflow.ellipsis,
     );
-    return Container(
-      decoration: const BoxDecoration(
-          color: AppColors.c200,
-          borderRadius: BorderRadius.only(
-              topRight: _Constants._radiusCircular,
-              bottomRight: _Constants._radiusCircular)),
-      child: Container(
-        margin: const EdgeInsetsDirectional.only(bottom: 1, end: 1, top: 1),
-        decoration: const BoxDecoration(
-          color: AppColors.white,
-          borderRadius: BorderRadius.only(
-              topRight: _Constants._radiusCircular,
-              bottomRight: _Constants._radiusCircular),
-        ),
-        padding: const EdgeInsets.symmetric(
-            vertical: AppSpaces.s, horizontal: AppSpaces.m),
-        //TODO: REMOVE
-        width: MediaQuery.of(context).size.width * 0.48,
+    return SizedBox(
+      width: MediaQuery.of(context).size.width * 0.46,
+      child: CardWhitBorder(
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(character.species, style: textStyleTitle),
