@@ -12,14 +12,14 @@ class Header extends StatelessWidget {
           image: DecorationImage(
               opacity: 0.5,
               image: AssetImage(
-                'assets/background.png',
+                AppAssets.background,
               ),
               fit: BoxFit.scaleDown),
         ),
         child: Center(
           child: SizedBox(
             width: 200,
-            child: Image.asset('assets/ricky_and_morty_title.png'),
+            child: Image.asset(AppAssets.rickyAndMortyTitle),
           ),
         ));
   }

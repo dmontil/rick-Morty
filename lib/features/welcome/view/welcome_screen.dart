@@ -19,12 +19,13 @@ class WelcomeScreen extends StatelessWidget {
         child: Scaffold(
       body: Container(
         decoration: const BoxDecoration(
-          color: AppColors.black,
-          image: DecorationImage(
-            opacity: 0.5,
-            image: AssetImage('assets/background.png',),
-            fit: BoxFit.scaleDown
-        )),
+            color: AppColors.black,
+            image: DecorationImage(
+                opacity: 0.5,
+                image: AssetImage(
+                  AppAssets.background,
+                ),
+                fit: BoxFit.scaleDown)),
         padding: const EdgeInsets.symmetric(
             vertical: _Constants.verticalPadding, horizontal: 12.0),
         child: Column(children: <Widget>[
@@ -32,7 +33,7 @@ class WelcomeScreen extends StatelessWidget {
           const SizedBox(height: AppSpaces.l),
           SizedBox(
             width: 250,
-            child: Image.asset('assets/ricky_and_morty_title.png'),
+            child: Image.asset(AppAssets.rickyAndMortyTitle),
           ),
           const SizedBox(height: AppSpaces.l),
           Text(

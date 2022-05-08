@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ricky/core/styles/app_styles.dart';
-import 'package:ricky/features/app.dart';
 import 'package:ricky/features/characters/domain/models/character/character.dart';
+import 'package:ricky/features/characters/view/cubit/characters_cubit.dart';
+import 'package:ricky/features/characters/view/widgets/favorite_icon.dart';
 
 class _Constants {
   static const _radiusCircular = Radius.circular(10);
@@ -18,8 +20,7 @@ class CharacterCard extends StatelessWidget {
       child: Row(
         children: [
           _ImageWithFav(
-            url: character.image,
-            isFavorite: character.isFavorite,
+            character: character,
           ),
           _InfoCard(
             character: character,
@@ -86,12 +87,10 @@ class _InfoCard extends StatelessWidget {
 }
 
 class _ImageWithFav extends StatelessWidget {
-  final String url;
-  final bool isFavorite;
+  final Character character;
   const _ImageWithFav({
     Key? key,
-    required this.url,
-    required this.isFavorite,
+    required this.character,
   }) : super(key: key);
 
   @override
@@ -102,19 +101,20 @@ class _ImageWithFav extends StatelessWidget {
           borderRadius: const BorderRadius.only(
               topLeft: Radius.circular(10), bottomLeft: Radius.circular(10)),
           child: Image.network(
-            url,
+            character.image,
             fit: BoxFit.cover,
             height: 160,
           ),
         ),
-        const Positioned(
+        Positioned(
           right: 0,
           bottom: 0,
-          child: Icon(
-            Icons.star_outline,
-            size: 50,
-          ),
-        )
+          child: FavoriteIcon(
+              onTap: () => context
+                  .read<CharacterCubit>()
+                  .toggleFavoriteCard(character.id),
+              isFavorite: character.isFavorite),
+        ),
       ],
     );
   }

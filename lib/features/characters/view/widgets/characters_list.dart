@@ -41,7 +41,7 @@ class CharactersList extends StatelessWidget {
                     character: state.characters[index],
                   );
                 }
-                return SizedBox();
+                return const SizedBox();
 
               });
         });
