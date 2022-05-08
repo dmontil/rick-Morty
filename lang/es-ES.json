@@ -1,5 +1,11 @@
 {
   "welcomeTitle" : "Bienvenido \na Rick and Morty",
   "welcomeSubtitle" : "En esta prueba, evaluaremos su capacidad para construit la aplicación mediante el análisis de código \ny la reproducción del siquiente diseño.",
-  "welcomeButton" : "Continuar"
+  "welcomeButton" : "Continuar",
+  "showFavorites" : "Mostrar Favoritos:",
+  "lastLocation" : "Last kwnon location",
+  "firstSeen" : "First seen",
+  "errorTitle" : "UH-OH",
+  "errorSubtitle" : "Pareces perdido en tu viaje",
+  "search" : "Busca tu personaje"
 }

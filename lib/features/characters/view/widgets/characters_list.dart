@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ricky/features/characters/view/cubit/characters_cubit.dart';
 import 'package:ricky/features/characters/view/cubit/characters_state.dart';
 import 'package:ricky/features/characters/view/widgets/character_card.dart';
+import 'package:ricky/features/characters/view/widgets/empty_list.dart';
 
 class CharactersList extends StatelessWidget {
 
@@ -20,10 +21,12 @@ class CharactersList extends StatelessWidget {
             );
           }
 
-          if (state.error) {
-            return const Center(
-              child: Text('Error'),
-            );
+
+
+          if(state.characters.isEmpty || state.error) {
+            return SizedBox(
+                height: MediaQuery.of(context).size.height * 0.2,
+                child: const Center(child: EmptyList()));
           }
           return ListView.builder(
               shrinkWrap: true,

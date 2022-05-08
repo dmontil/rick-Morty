@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ricky/core/styles/app_styles.dart';
@@ -66,7 +67,7 @@ class _SearchBar extends StatelessWidget {
                   () => context.read<CharacterCubit>().filterCharacters(value)),
               decoration: InputDecoration(
                 contentPadding: const EdgeInsets.only(bottom: 12),
-                hintText: 'Busca tu personaje',
+                hintText: 'search'.tr(),
                 hintStyle:
                     AppTextStyle.regularMedium.copyWith(color: AppColors.white),
                 border: InputBorder.none,

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ricky/core/styles/app_styles.dart';
@@ -53,7 +54,7 @@ class _ShowFavorites extends StatelessWidget {
   builder: (context, state) {
     return Row(
       children: [
-         Text('Mostrar favoritos: ', style:  AppTextStyle.regularMedium,),
+         Text('showFavorites'.tr(), style:  AppTextStyle.regularMedium,),
         FavoriteIcon(
           onTap: () => context.read<CharacterCubit>().toggleFavoriteFilter(),
           isFavorite: state.onlyFavorites,

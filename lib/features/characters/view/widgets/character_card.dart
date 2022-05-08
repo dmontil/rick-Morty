@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ricky/core/styles/app_styles.dart';
@@ -51,13 +52,13 @@ class _InfoCard extends StatelessWidget {
             Text(character.name, style: textStyleSubtitle),
             const SizedBox(height: AppSpaces.xs),
             Text(
-              'Last kwnon location:',
+              'lastLocation'.tr(),
               style: textStyleTitle,
               overflow: TextOverflow.ellipsis,
             ),
             Text(character.location.name, style: textStyleSubtitle),
             const SizedBox(height: AppSpaces.xs),
-            Text('First seen', style: textStyleTitle),
+            Text('firstSeen'.tr(), style: textStyleTitle),
             Text(
               'Never Ricking Morty',
               style: textStyleSubtitle,
