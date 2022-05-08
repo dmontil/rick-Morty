@@ -39,7 +39,7 @@ class CharacterCubit extends Cubit<CharacterState> {
 
   filterCharacters(String name) async {
     if (name.isEmpty) {
-      getCharacters();
+      await getCharacters();
     } else {
       emit(state.copyWith(isLoading: true));
       try {

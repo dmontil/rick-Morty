@@ -26,16 +26,21 @@ void main() {
       expect(charactersCubit.state, tInitialState);
     });
 
-    test('When call charactersRepository.getCharacters emit newList', () async {
+    test('When call getCharacters emit newList', () async {
       when(charactersRepository.getCharacters())
           .thenAnswer((_) async => [tCharacter]);
       await charactersCubit.getCharacters();
       expect(charactersCubit.state, tGetCharactersState);
     });
-    test('When call charactersRepository.getCharacters and should Exception emit state with error true', () async {
+    test('When call getCharacters and should Exception emit state with error true', () async {
       when(charactersRepository.getCharacters()).thenThrow(Exception());
       await charactersCubit.getCharacters();
       expect(charactersCubit.state, tErrorState);
+    });
+
+    test('When call toggleFavoriteFilter emit state !onlyFavorites', () async {
+       charactersCubit.toggleFavoriteFilter();
+      expect(charactersCubit.state, tToggleFavoriteFilterState);
     });
   });
 }

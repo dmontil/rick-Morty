@@ -12,6 +12,12 @@ const CharacterState tErrorState = CharacterState(
   characters: [],
   error: true,
 );
+const CharacterState tToggleFavoriteFilterState = CharacterState(
+  isLoading: true,
+  characters: [],
+  error: false,
+  onlyFavorites: true,
+);
 
 const CharacterState tGetCharactersState = CharacterState(
   isLoading: false,
