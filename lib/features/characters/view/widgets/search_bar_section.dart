@@ -58,21 +58,22 @@ class _SearchBar extends StatelessWidget {
           SizedBox(
             width: MediaQuery.of(context).size.width * 0.5,
             child: TextField(
-                cursorColor: AppColors.white,
-                style:
+              cursorColor: AppColors.white,
+              style:
+                  AppTextStyle.regularMedium.copyWith(color: AppColors.white),
+              controller: controller,
+              onChanged: (value) => _debounce.call(
+                  () => context.read<CharacterCubit>().filterCharacters(value)),
+              decoration: InputDecoration(
+                contentPadding: const EdgeInsets.only(bottom: 12),
+                hintText: 'Busca tu personaje',
+                hintStyle:
                     AppTextStyle.regularMedium.copyWith(color: AppColors.white),
-                controller: controller,
-                onChanged: (value) => _debounce.call(() =>
-                    context.read<CharacterCubit>().filterCharacters(value)),
-                decoration: InputDecoration(
-                  contentPadding: const EdgeInsets.only(bottom: 12),
-                  hintText: 'Busca tu personaje',
-                  hintStyle: AppTextStyle.regularMedium
-                      .copyWith(color: AppColors.white),
-                  border: InputBorder.none,
-                  fillColor: AppColors.white,
-                  focusColor: AppColors.white,
-                )),
+                border: InputBorder.none,
+                fillColor: AppColors.white,
+                focusColor: AppColors.white,
+              ),
+            ),
           ),
         ],
       ),
