@@ -12,6 +12,7 @@ class CardWhitBorder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 160,
       decoration: const BoxDecoration(
           color: AppColors.c200,
           borderRadius: BorderRadius.only(
