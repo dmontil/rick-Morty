@@ -25,7 +25,7 @@ class CharactersList extends StatelessWidget {
 
           if(state.characters.isEmpty || state.error) {
             return SizedBox(
-                height: MediaQuery.of(context).size.height * 0.2,
+                height: MediaQuery.of(context).size.height * 0.38,
                 child: const Center(child: EmptyList()));
           }
           return ListView.builder(
