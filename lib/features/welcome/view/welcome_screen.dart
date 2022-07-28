@@ -50,7 +50,7 @@ class WelcomeScreen extends StatelessWidget {
           const Spacer(),
           PrimaryButton(
               text: 'welcomeButton'.tr(),
-              onPressed: () => context.goNamed(AppRoute.characters.name)),
+              onPressed: () => context.goNamed(AppRoute.people.name)),
         ]),
       ),
     ));
