@@ -7,5 +7,9 @@
   "firstSeen" : "First seen",
   "errorTitle" : "UH-OH",
   "errorSubtitle" : "Pareces perdido en tu viaje",
-  "search" : "Busca tu personaje"
+  "search" : "Busca tu personaje",
+  "name" : "Nombre",
+  "height" : "Altura",
+  "mass" : "Peso",
+  "unknown" : "Desconocido"
 }
